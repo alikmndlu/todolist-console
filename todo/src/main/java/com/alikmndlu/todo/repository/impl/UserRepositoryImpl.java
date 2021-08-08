@@ -5,6 +5,9 @@ import com.alikmndlu.todo.model.User;
 import com.alikmndlu.todo.repository.UserRepository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
@@ -42,11 +45,24 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<User, Long>
 
     @Override
     public User findById(Long userId) {
-        return null;
+        Query query = entityManager.createQuery("from User u where u.id = :id", User.class);
+        query.setParameter("id", userId);
+        return (User) query.getSingleResult();
     }
 
     @Override
     public void deleteById(Long userId) {
 
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        Query query = entityManager.createQuery("from User u where u.username = :username", User.class);
+        query.setParameter("username", username);
+        try {
+            return (User) query.getSingleResult();
+        } catch (NoResultException nre) {
+            return null;
+        }
     }
 }
