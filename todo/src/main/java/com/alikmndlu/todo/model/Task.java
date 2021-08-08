@@ -1,5 +1,6 @@
 package com.alikmndlu.todo.model;
 
+import com.alikmndlu.todo.base.model.BaseModel;
 import com.alikmndlu.todo.model.enumeration.TaskStatus;
 
 import javax.persistence.*;
@@ -7,10 +8,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tasks")
-public class Task {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class Task extends BaseModel<Long> {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -24,14 +22,6 @@ public class Task {
 
     @Column(name = "created_at", nullable = false)
     private Timestamp createTime;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;

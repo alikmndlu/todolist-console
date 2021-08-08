@@ -1,14 +1,13 @@
 package com.alikmndlu.todo.model;
 
+import com.alikmndlu.todo.base.model.BaseModel;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class User extends BaseModel<Long> {
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -33,14 +32,6 @@ public class User {
         this.lastName = lastName;
         this.username = username;
         this.password = password;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getFirstName() {
