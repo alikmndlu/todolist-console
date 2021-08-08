@@ -8,7 +8,6 @@ import javax.persistence.Persistence;
 public class HibernateContext {
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JpaUnit");
     private static final EntityManager entityManager = entityManagerFactory.createEntityManager();
-    private static final EntityTransaction entityTransaction = entityManager.getTransaction();
 
     public static EntityManagerFactory getEntityManagerFactory() {
         return entityManagerFactory;
@@ -16,9 +15,5 @@ public class HibernateContext {
 
     public static EntityManager getEntityManager() {
         return entityManager;
-    }
-
-    public static EntityTransaction getEntityTransaction() {
-        return entityTransaction;
     }
 }
