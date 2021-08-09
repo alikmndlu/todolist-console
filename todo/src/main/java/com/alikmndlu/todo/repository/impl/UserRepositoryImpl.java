@@ -57,7 +57,7 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<User, Long>
 
     @Override
     public User findByUsername(String username) {
-        Query query = entityManager.createQuery("from User u where u.username = :username", User.class);
+        Query query = entityManager.createQuery("from User u where u.username = :username and is_delete = 0", User.class);
         query.setParameter("username", username);
         try {
             return (User) query.getSingleResult();
