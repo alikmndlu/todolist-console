@@ -14,10 +14,10 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserRepository>
 
     @Override
     public void login() {
-        System.out.println("Enter username : ");
+        System.out.println("\nEnter username : ");
         String username = ApplicationContext.getScanner().nextLine();
 
-        System.out.println("Enter password : ");
+        System.out.println("\nEnter password : ");
         String password = ApplicationContext.getScanner().nextLine();
 
         User user = repository.findByUsername(username);
@@ -32,6 +32,19 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserRepository>
 
     @Override
     public void register() {
+        System.out.println("\nEnter first name : ");
+        String firstName = ApplicationContext.getScanner().nextLine();
 
+        System.out.println("\nEnter last name  : ");
+        String lastName = ApplicationContext.getScanner().nextLine();
+
+        System.out.println("\nEnter username : ");
+        String username = ApplicationContext.getScanner().nextLine();
+
+        System.out.println("\nEnter password : ");
+        String password = ApplicationContext.getScanner().nextLine();
+
+        save(new User(firstName, lastName, username, password));
+        System.out.println("\nRegister Successfully.");
     }
 }
