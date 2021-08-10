@@ -3,13 +3,13 @@ package com.alikmndlu.todo.base.repository.impl;
 import com.alikmndlu.todo.base.model.BaseModel;
 import com.alikmndlu.todo.base.repository.BaseRepository;
 
-import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 public abstract class BaseRepositoryImpl<E extends BaseModel<ID>, ID extends Number> implements BaseRepository<E, ID> {
 
-    protected final EntityManager entityManager;
+    protected final EntityManagerFactory entityManagerFactory;
 
-    protected BaseRepositoryImpl(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    public BaseRepositoryImpl(EntityManagerFactory entityManagerFactory) {
+        this.entityManagerFactory = entityManagerFactory;
     }
 }

@@ -3,6 +3,7 @@ package com.alikmndlu.todo.model;
 import com.alikmndlu.todo.base.model.BaseModel;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -21,8 +22,8 @@ public class User extends BaseModel<Long> {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user")
-    private Set<Task> tasks;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Task> tasks = new HashSet<>();
 
     public User() {
     }
@@ -73,4 +74,6 @@ public class User extends BaseModel<Long> {
     public void setTasks(Set<Task> tasks) {
         this.tasks = tasks;
     }
+
+
 }

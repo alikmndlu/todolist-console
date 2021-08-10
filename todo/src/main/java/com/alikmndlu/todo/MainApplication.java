@@ -12,6 +12,5 @@ public class MainApplication {
         ApplicationContext.getLayer().mainMenu();
 
         System.out.println("Shutdown Application...");
-        HibernateContext.getEntityManager().close();
     }
 }

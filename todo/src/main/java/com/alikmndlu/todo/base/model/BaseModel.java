@@ -15,22 +15,11 @@ public abstract class BaseModel<ID extends Number> {
     @GeneratedValue
     private ID id;
 
-    @Column(name = "is_delete", nullable = false)
-    private Boolean isDelete = false;
-
     public ID getId() {
         return id;
     }
 
     public void setId(ID id) {
         this.id = id;
-    }
-
-    public Boolean getDelete() {
-        return isDelete;
-    }
-
-    public void setDelete(Boolean delete) {
-        isDelete = delete;
     }
 }

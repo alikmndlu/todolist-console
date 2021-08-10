@@ -5,4 +5,5 @@ import com.alikmndlu.todo.model.User;
 
 public interface UserRepository extends BaseRepository<User, Long>{
     User findByUsername(String username);
+    void refreshUserData();
 }

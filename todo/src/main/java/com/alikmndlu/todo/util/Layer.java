@@ -35,10 +35,10 @@ public class Layer {
             int action = ApplicationContext.getHelper().readInteger("-> ");
 
             switch (action) {
-//                case 1 -> customerBalanceLayer();
-//                case 2 -> customerProductsLayer();
-//                case 3 -> ApplicationContext.getBasketServiceImpl().showBasket(Authenticate.getLoggedInCustomer());
-//                case 4 -> ApplicationContext.getBasketServiceImpl().checkoutBasket(Authenticate.getLoggedInCustomer());
+                case 1 -> ApplicationContext.getTaskServiceImpl().showTasks();
+                case 2 -> ApplicationContext.getTaskServiceImpl().addTask();
+                case 3 -> ApplicationContext.getTaskServiceImpl().updateTask();
+                case 4 -> ApplicationContext.getTaskServiceImpl().removeTask();
                 case 5 -> quit = true;
                 default -> System.out.println("unknown command!");
             }

@@ -7,13 +7,8 @@ import javax.persistence.Persistence;
 
 public class HibernateContext {
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JpaUnit");
-    private static final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     public static EntityManagerFactory getEntityManagerFactory() {
         return entityManagerFactory;
-    }
-
-    public static EntityManager getEntityManager() {
-        return entityManager;
     }
 }
